@@ -1,7 +1,9 @@
 from openai import OpenAI
+from decouple import config
+SECRET_KEY = config('OPENAI_API_KEY')
 
 client = OpenAI(
-  api_key=process.env.OPENAI_API_KEY
+  api_key=SECRET_KEY
 )
 
 completion = client.chat.completions.create(
