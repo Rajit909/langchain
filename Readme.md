@@ -22,3 +22,21 @@ Like give it a try by installing langchain package.
 ```bash
  pip install langchain
 ```
+
+
+Now install the required packages for this project using the following command.
+### Install required packages for this project
+```bash
+    pip install -r requirements.txt
+```
+Now install the required packages for the project using the following command.
+### Run the project
+```bash
+    pip install python-decouple
+```
+
+and then install langcchain openai
+```bash
+    pip install langchain-openai
+```
+
