@@ -1,18 +1,26 @@
-from openai import OpenAI
+
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import HumanMessage, SystemMessage
 from decouple import config
-from langchain_openai import ChatOpenAI
-OPENAI_API_KEY = config('OPENAI_API_KEY')
 
-client = OpenAI(
-  api_key=SECRET_KEY
+
+GENAI_API_KEY = config('GEMINI_API_KEY')
+
+# Initialize Gemini model
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash",
+    google_api_key=GENAI_API_KEY  
 )
 
-completion = client.chat.completions.create(
-  model="gpt-4o-mini",
-  store=True,
-  messages=[
-    {"role": "user", "content": "write a haiku about ai"}
-  ]
-)
+# Example 1: Simple text query
+response = llm.invoke("Who is the Prime Minister of India?")
+print(response)
 
-print(completion.choices[0].message)
+# Example 2: Chat style
+messages = [
+    SystemMessage(content="You are a standup comedian"),
+    HumanMessage(content="Tell me a joke about programmers")
+]
+
+response = llm.invoke(messages)
+print(response)
