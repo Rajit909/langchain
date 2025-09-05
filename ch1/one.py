@@ -8,18 +8,14 @@ GENAI_API_KEY = config('GEMINI_API_KEY')
 
 # Initialize Gemini model
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="gemini-2.5-flash",
     google_api_key=GENAI_API_KEY  
 )
 
-# Example 1: Simple text query
-response = llm.invoke("Who is the Prime Minister of India?")
-print(response)
-
 # Example 2: Chat style
 messages = [
-    SystemMessage(content="You are a standup comedian"),
-    HumanMessage(content="Tell me a joke about programmers")
+    SystemMessage(content="You are a professional software developer"),
+    HumanMessage(content="can you create images?")
 ]
 
 response = llm.invoke(messages)
