@@ -40,3 +40,8 @@ and then install langcchain openai
     pip install langchain-openai
 ```
 
+
+# how to install dependencies using requirement.txt
+```bash
+    pip install -r requirements.txt
+```
